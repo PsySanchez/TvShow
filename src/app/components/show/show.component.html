@@ -1,0 +1,41 @@
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Image</th>
+            <th scope="col">Status</th>
+            <th scope="col">Schedule</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="show">
+        <tr>
+            <td>{{show.name}}</td>
+            <td><img [src]="show.image.medium"></td>
+            <td>{{show.status}}</td>
+            <td>{{show.schedule.days[0]}} {{show.schedule.time}}</td>
+        </tr>
+
+        <tr>
+            <th scope="col">
+                <a href="{{show.officialSite}}" target="_blank">Official site </a>
+            </th>
+        </tr>
+        <tr>
+            <th scope="col">
+                <a href="https://www.imdb.com/title/{{show.externals.imdb}}" target="_blank">IMDB</a>
+            </th>
+        </tr>
+        <tr>
+            <th scope="col">Language: {{show.language}}</th>
+        </tr>
+        <tr>
+            <th scope="col">Genres: {{show.genres[0]}}, {{show.genres[1]}}, {{show.genres[2]}}</th>
+        </tr>
+        <tr>
+            <th scope="col">Rating: {{show.rating.average}}</th>
+        </tr>
+        <!-- <tr>
+            <th scope="col-sm-2">Summary: {{show.summary}}</th>
+        </tr> -->
+    </tbody>
+</table>
