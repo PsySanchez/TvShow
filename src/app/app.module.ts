@@ -14,6 +14,8 @@ import { ShowComponent } from './components/show/show.component';
 import { ShowPipe } from './pipes/show.pipe';
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './components/search/search.component';
+import { AboutComponent } from './components/about/about.component';
+import { CastModule } from '../app/cast/cast.module';
 
 
 
@@ -26,15 +28,17 @@ import { SearchComponent } from './components/search/search.component';
     Page404Component,
     ShowComponent,
     ShowPipe,
-    SearchComponent
+    SearchComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule.forRoot(),
     HttpClientModule,
-    DataTableModule,
-    FormsModule
+    FormsModule,
+    CastModule,
+    DataTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

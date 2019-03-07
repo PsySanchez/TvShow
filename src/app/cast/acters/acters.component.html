@@ -1,3 +1,36 @@
-<p>
-  acters works!
-</p>
+<table class="table table-dark" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="1">
+       
+    <thead>
+        <tr>
+            <th style="width: 10%">
+                <mfDefaultSorter by="name">Name</mfDefaultSorter>
+            </th>
+            <th style="width: 10%">
+                <mfDefaultSorter by="image">Photo</mfDefaultSorter>
+            </th>
+            <th style="width: 10%">
+                <mfDefaultSorter by="status">Actor data page</mfDefaultSorter>
+            </th>
+            <th style="width: 10%">
+                <mfDefaultSorter by="shedule">Country</mfDefaultSorter>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let person of mf.data">
+            <td>{{person.name}}</td>
+            <td><img [src]="person.image.medium" width="100px"></td>
+            <td>
+                <a href="{{person.url}}" target="_blank">URL</a>
+            </td>
+            <td>{{person.country.name}}</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4">
+                <mfBootstrapPaginator class="text-primary" [rowsOnPageSet]="[1,3,5]"></mfBootstrapPaginator>
+            </td>
+        </tr>
+    </tfoot>
+</table>

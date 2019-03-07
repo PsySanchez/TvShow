@@ -15,7 +15,6 @@ export class ShowService {
         return this.http.get(`${environment.apiUrl}/shows`)
         .toPromise()
         .then(data => {
-            console.log(data)
            return this.mapShows(data);
         });
     }

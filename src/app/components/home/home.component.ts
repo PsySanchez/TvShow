@@ -39,7 +39,6 @@ export class HomeComponent implements OnInit {
             });
         if (showName === undefined) {
             this.data = this.getData;
-            console.log(this.getData);
         }
         else {
             this.data = this.getData.filter(c => c.name.toLowerCase().includes(showName.toLowerCase()));

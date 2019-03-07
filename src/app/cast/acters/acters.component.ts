@@ -1,15 +1,26 @@
 import { Component, OnInit } from '@angular/core';
+import { ActersService } from '../services/acters.service';
+import { ActivatedRoute } from '@angular/router';
+import { Person } from '../models/person.model';
 
 @Component({
-  selector: 'app-acters',
-  templateUrl: './acters.component.html',
-  styleUrls: ['./acters.component.css']
+    selector: 'app-acters',
+    templateUrl: './acters.component.html',
+    styleUrls: ['./acters.component.css']
 })
 export class ActersComponent implements OnInit {
 
-  constructor() { }
+    public data: Person[];
+    public castId: number;
 
-  ngOnInit() {
-  }
+    constructor(private actersService: ActersService, private route: ActivatedRoute) { }
 
+    ngOnInit() {
+        this.route.queryParams.subscribe(params => {
+            this.castId = params['showId'];
+            this.actersService.getCast(this.castId).subscribe(person => {
+                this.data = person;
+            });
+        });
+    }
 }
